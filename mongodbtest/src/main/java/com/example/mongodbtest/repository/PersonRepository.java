@@ -6,6 +6,4 @@ import com.example.mongodbtest.domain.Person;
 
 public interface PersonRepository extends MongoRepository<Person, String> {
 
-	Person findAndModify(String id);
-	
 }
