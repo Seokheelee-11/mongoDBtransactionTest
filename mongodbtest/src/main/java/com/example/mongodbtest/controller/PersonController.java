@@ -1,6 +1,10 @@
 package com.example.mongodbtest.controller;
 
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,10 +23,16 @@ public class PersonController {
 
 	private final PersonService personService;
 	
-	@PostMapping("firstName/{firstName}")
-	public Person getPerson(String firstName)  {
+	@GetMapping("firstName/{firstName}")
+	public List<Person> getPerson(String firstName)  {
 		
 		return personService.readPerson(firstName);
+	}
+	
+	@PutMapping("firstName/{firstName}")
+	public Person updatePerson(String firstName)  {
+		
+		return personService.updatePerson(firstName);
 	}
 	
 	@PostMapping
