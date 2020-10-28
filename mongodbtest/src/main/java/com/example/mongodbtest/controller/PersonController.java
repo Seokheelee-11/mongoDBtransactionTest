@@ -30,9 +30,9 @@ public class PersonController {
 	}
 	
 	@PutMapping("firstName/{firstName}")
-	public Person updatePerson(String firstName)  {
+	public void updatePerson(String firstName, String lastName)  {
 		
-		return personService.updatePerson(firstName);
+		personService.updatePerson(firstName,lastName);
 	}
 	
 	@PostMapping

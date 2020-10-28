@@ -1,10 +1,37 @@
+#spring:
+#  data:
+#    mongodb:
+#      host: localhost
+#      port: 27017
+#      database: test
+
+
 spring:
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: test
+#      host: chatbot-shard-00-02.v13hn.mongodb.net
+#      port: 27017
+#      username: chatbot
+#      password: dbwj123!
+#      database: test
+      uri: mongodb+srv://chatbot:dbwj123!@chatbot.v13hn.mongodb.net/test?retryWrites=true&w=majority
+     
+
 
 logging:
   level:
     root: info
+    
+---
+
+spring: profiles: peer1
+
+server:  port: 8080
+  
+---
+
+spring:
+ profiles: peer2
+
+server:
+  port: 8090
